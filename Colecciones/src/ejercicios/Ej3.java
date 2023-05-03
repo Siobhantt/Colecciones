@@ -1,15 +1,12 @@
 package ejercicios;
 
-import java.util.LinkedHashSet;
 import java.util.Scanner;
-/*Introduce por teclado, hasta que se introduzca “fin”, una serie de nombres, 
- * que se insertarán en una colección, de forma que se conserve el orden de inserción y que no puedan repetirse. 
- * Al final, la colección se mostrará por pantalla.*/
-public class Ej2 {
+import java.util.TreeSet;
+
+public class Ej3 {
 
 	public static void main(String[] args) {
-		//Utilizamos un linkedhashSet porque nos importa el orden de INSERCION
-		LinkedHashSet <String> nombres = new LinkedHashSet<>();
+		TreeSet <String> nombres =  new TreeSet<>();//En este caso si nos importa el criterio de ordenacion entonces usamos un TreeSet
 		Scanner lee = new Scanner(System.in);
 		String palabra=""; //aqui se van a guardar los nombres
 		System.out.println("Por favor introduzca los nombres que prefiera, cuando quiera parar, escriba fin.");
@@ -20,6 +17,8 @@ public class Ej2 {
 			System.out.println(nombres);
 			palabra=lee.next();
 		}
-	lee.close();//años que no cerraba el Scanner xddd
+	lee.close();
+
 	}
+
 }
