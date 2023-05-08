@@ -41,30 +41,30 @@ Las colecciones no pueden tener repetidos y deben estar ordenadas.
 			
 			}//fin del for
 			
-			
-			for(int i=0;i<turnoE;i++) {
+			System.out.println();
+			for(int i=0;i<turnoE;i++) { 
 				System.out.println("Por favor introduzca una de las estrellas que ha obtenido: ");
-				estrella = lee.nextInt();
-				lee.nextLine();
-				if(estrella>=1 && estrella<=12) {
-					 if(!estrellas.containsKey(estrella)){
-						 estrellas.put(estrella, 1);
+				estrella = lee.nextInt();//leemos el numero de la estrella
+				lee.nextLine();//para que no se vuelva loco esto
+				if(estrella>=1 && estrella<=12) {//si esta entre los valores 
+					 if(!estrellas.containsKey(estrella)){// y si no esta en el mapa
+						 estrellas.put(estrella, 1);//lo insertamos y el valor lo colocamos a 1 
 					}else {
-						estrellas.replace(estrella, estrellas.get(estrella) +1);
+						estrellas.replace(estrella, estrellas.get(estrella) +1);//en caso de que si este lo reemplazamos por si mismo pero al valor le añadimos 1
 					}
 					}else {
 						System.out.println("El valor que intenta introducir no esta entre los aceptados.");
 					}
 				
 			}//fin del for
-			
+			//=============================Reiniciamos los valores para la siguiente vuelta
 			numero =0;
 			estrella = 0;
-			
+			System.out.println();
 			System.out.println("Desea introducir otra serie? s/n");
 			opcion = lee.nextLine();
 		}while(opcion.equalsIgnoreCase("s"));
-		
+		//imprimimos ambos mapas
 		System.out.println("Los valores de los numeros introducidos son: ");
 		System.out.println(numeros);
 		System.out.println("Los valores de las estrellas introducidos son: ");
