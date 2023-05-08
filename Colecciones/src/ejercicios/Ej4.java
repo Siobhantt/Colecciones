@@ -14,35 +14,59 @@ Las colecciones no pueden tener repetidos y deben estar ordenadas.
 */
 	public static void main(String[] args) {
 		Scanner lee = new Scanner(System.in);
-		TreeSet <Integer> estrellas = new TreeSet<>();
+		TreeMap <Integer,Integer> estrellas = new TreeMap<>();
 		TreeMap <Integer,Integer> numeros = new TreeMap<>();
 		int numero =0;
-		int estrella=0;
-		int contador=1;
-		int contadorTurno=5;
-		int contadorTurnoEstrellas=2;
-		do {
-			mensaje();
-			for(int i=0;i<contadorTurno;i++) {
-				System.out.println("Por favor introduzca el numero de la serie: ");
-				numero=lee.nextInt();
-				if(numero>=1&&numero<=50) {
-					if(!numeros.containsKey(numero)) {
-						numeros.put(numero, numeros.get());}
-				}else {
-					numeros.replace(numero, contador++);
-				}
-			}
-		for(int i=0;i<contadorTurnoEstrellas;i++) {
-			System.out.println("Por favor introduzca las estrellas de la serie: ");
-			estrella=lee.nextInt();
-			if(estrella >=1 && estrella<=12) {
-				estrellas.add(estrella);
-			}
-		}
-		
 
-		}while(contador<=5);
+		int estrella=0;
+		int turnoN=5;
+		int turnoE=2;
+		String opcion=""; 
+		
+		do {
+			for(int i=0;i<turnoN;i++) {
+			System.out.println("Por favor introduzca uno de los numeros que ha obtenido: ");
+			numero = lee.nextInt();
+			lee.nextLine();
+			if(numero>=1 && numero<=50) {
+			 if(!numeros.containsKey(numero)){
+				numeros.put(numero, 1);
+			}else {
+				numeros.replace(numero, numeros.get(numero)+1);
+			}
+			}else {
+				System.out.println("El valor que intenta introducir no esta entre los aceptados.");
+			}
+			
+			}//fin del for
+			System.out.println("El mapa de los numeros " + numeros);
+			
+			for(int i=0;i<turnoE;i++) {
+				System.out.println("Por favor introduzca una de las estrellas que ha obtenido: ");
+				estrella = lee.nextInt();
+				lee.nextLine();
+				if(estrella>=1 && estrella<=12) {
+					 if(!estrellas.containsKey(estrella)){
+						 estrellas.put(estrella, 1);
+					}else {
+						estrellas.replace(estrella, estrellas.get(estrella) +1);
+					}
+					}else {
+						System.out.println("El valor que intenta introducir no esta entre los aceptados.");
+					}
+			}//fin del for
+			
+			numero =0;
+			estrella = 0;
+			
+			System.out.println("Desea introducir otra serie? s/n");
+			opcion = lee.nextLine();
+		}while(opcion.equalsIgnoreCase("s"));
+		
+		System.out.println("Los valores de los numeros introducidos son: ");
+		System.out.println(numeros);
+		System.out.println("Los valores de las estrellas introducidos son: ");
+		System.out.println(estrellas);
 	}//fin del main
 public static void mensaje() {
 	System.out.println("BIENVENIDO AL REGISTRO DEL EUROMILLON (;");
