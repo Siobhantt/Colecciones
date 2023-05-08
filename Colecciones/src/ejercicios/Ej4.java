@@ -24,22 +24,23 @@ Las colecciones no pueden tener repetidos y deben estar ordenadas.
 		String opcion=""; 
 		
 		do {
+			//Establecemos que el turno de lo numero sea 5 porque se deben introducir 5 numeros del 1 al 50
 			for(int i=0;i<turnoN;i++) {
 			System.out.println("Por favor introduzca uno de los numeros que ha obtenido: ");
 			numero = lee.nextInt();
 			lee.nextLine();
-			if(numero>=1 && numero<=50) {
-			 if(!numeros.containsKey(numero)){
-				numeros.put(numero, 1);
+			if(numero>=1 && numero<=50) {//verificamos que esten en el rango adecuado
+			 if(!numeros.containsKey(numero)){ //si el mapa no contiene el numero introducido
+				numeros.put(numero, 1); //lo agregamos con el valor a 1
 			}else {
-				numeros.replace(numero, numeros.get(numero)+1);
+				numeros.replace(numero, numeros.get(numero)+1);//en caso de que si este, modificamos el valor y le añadimos 1
 			}
 			}else {
 				System.out.println("El valor que intenta introducir no esta entre los aceptados.");
 			}
 			
 			}//fin del for
-			System.out.println("El mapa de los numeros " + numeros);
+			
 			
 			for(int i=0;i<turnoE;i++) {
 				System.out.println("Por favor introduzca una de las estrellas que ha obtenido: ");
@@ -54,6 +55,7 @@ Las colecciones no pueden tener repetidos y deben estar ordenadas.
 					}else {
 						System.out.println("El valor que intenta introducir no esta entre los aceptados.");
 					}
+				
 			}//fin del for
 			
 			numero =0;
