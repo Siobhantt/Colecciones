@@ -61,11 +61,15 @@ public static void quitar(String nombre) {
 	System.out.println();
 }
 public static void listado() {
+	if(productos.isEmpty()) {
+		System.out.println("Ahora mismo no hay productos disponibles.");
+	}else {
 	System.out.println();
 	System.out.println("Los productos hasta ahora registrados.");
 	System.out.println(productos);
 	System.out.println();
-}
+	}
+	}
 public static void adios() {
 	System.out.println("Hasta luego!!");
 }
